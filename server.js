@@ -6,7 +6,8 @@ const app = express();
 
 var serve = http.createServer(app);
 var io = socketServer(serve);
-serve.listen(8000 ,()=> {console.log("+++Gethyl Express Server with Socket Running!!!")})
+var port = proccess.env.PORT || 8000
+serve.listen(port ,()=> {console.log("+++Gethyl Express Server with Socket Running!!!")})
 
 io.on('connection', (socket) => {
     console.log("connected");
